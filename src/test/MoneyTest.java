@@ -2,14 +2,21 @@ package test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 
 import org.junit.Test;
 
 public class MoneyTest {
 	
+	private Money m12CHF;
+	
+	@Before
+    public void setUp() {
+        m12CHF = new Money(12, "CHF");
+    }
+	
 	@Test
 	public void testSimpleAdd() {
-		Money m12CHF = new Money(12, "CHF"); // création de données
 		Money m14CHF = new Money(14, "CHF");
 		Money expected = new Money(26, "CHF");
 		Money result = m12CHF.add(m14CHF); // exécution de la méthode testée
@@ -18,7 +25,6 @@ public class MoneyTest {
 	
 	@Test
 	public void testEquals() {
-	    Money m12CHF = new Money(12, "CHF");
 	    Money anotherM12CHF = new Money(12, "CHF");
 	    assertTrue(m12CHF.equals(anotherM12CHF));
 	}
